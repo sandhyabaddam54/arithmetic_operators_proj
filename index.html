@@ -4,8 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repository Creation</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h>This is my first repository..</h>
+    <div id="mainform" class="form-div">
+        <h1 style="text-align: center; margin-top: 10px;">Form</h1>
+        <div class="form-container">
+        <div class="div-main-form" >
+        <!-- <div class="contact-div"> -->
+            <div class="number-div">
+          <label class="label-number-lbl">Enter your number: </label> 
+          <p> <input type="number" id="first_number" class="input-number" placeholder="Enter your number"></p>
+        </div>
+        <div class="number-div">
+            <label class="label-number-lbl">Enter your second number: </label> 
+            <p> <input type="number" id="second_number" class="input-number" placeholder="Enter your second number"></p>
+          </div>
+        <div class="operator-div" >
+            <label class="label-username-email" >Select operator: </label> 
+            <select style="height: 30px; width: 130px;" id="select_value">
+                <option value="select">Select operator</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+
+            </select>
+          </div>
+        <div class="btn-div">
+            <button class="btnSubmit" onclick="validateValue()">Submit</button>
+        </div>
+        <label id="result_lbl"></label>
+
+          <!-- </div> -->
+    </div>
+    </div>
+    </div>
+    <script>
+        function validateValue(){
+            let selected_operator = document.getElementById('select_value').value;
+            if(selected_operator === "select"){
+                alert("Please select any operator")
+                document.getElementById('result_lbl').innerText = `Result: `
+               
+            }else{
+                arithmeticFunc(); 
+            }
+        }
+        function arithmeticFunc(){
+           let a = document.getElementById('first_number').value;
+           let b = document.getElementById('second_number').value;
+let selected_operator = document.getElementById('select_value').value;
+console.log("getttt: "," "+selected_operator);
+let result;
+           if(selected_operator == "+"){
+           result = (a, b);
+           }else if(selected_operator === "-"){
+            result = substract(a,b);
+           }else if(selected_operator === "*"){
+            result = multiply(a,b);
+           }else if(selected_operator === "/"){
+            result = divide(a,b);
+           }
+
+           document.getElementById('result_lbl').innerText = `Result: ${result}`
+        }
+        function add(x,y){
+            return x+y;
+        }
+        function substract(x,y){
+            return x-y;
+        }
+        function multiply(x,y){
+            return x*y;
+        }
+        function divide(x,y){
+            return x/y;
+        }
+    </script>
 </body>
 </html>
